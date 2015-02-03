@@ -1,5 +1,6 @@
 #ifndef DYNAMICARRAY_H_
 #define DYNAMICARRAY_H_
+#include <iostream>
 
 
 class DynamicArray
@@ -16,12 +17,15 @@ public:
 		}
 	}
 	DynamicArray(unsigned int index);
+	//~DynamicArray();
 	int getCapacite() const;
 	int getElement(int i) const;
-	//void setElement(const int index_element, const int nouvelle_valeur_element);
+	void setElement(const int index_element, const int nouvelle_valeur_element);
+	void setCapacite(const int nouvelle_capacite);
+
 private:
 	int *tabElements;
-	unsigned int capacite;
+	int capacite;
 };
 
 
