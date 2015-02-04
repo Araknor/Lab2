@@ -209,84 +209,84 @@ namespace DynamicArrayTests
 		// PARTIE 2 (lab 3)
 		/////////////////////////////////////////////////
 
-	//	TEST_METHOD(le_constructeur_de_copie_devrait_copier_tout_le_contenu_d_un_dynamicArray)
-	//	{
-	//		//Arrange
-	//		const int CAPACITE = 5;
-	//		DynamicArray tableau1(CAPACITE);
+		TEST_METHOD(le_constructeur_de_copie_devrait_copier_tout_le_contenu_d_un_dynamicArray)
+		{
+			//Arrange
+			const int CAPACITE = 5;
+			DynamicArray tableau1(CAPACITE);
 
-	//		for (unsigned int i = 0; i < CAPACITE; ++i)
-	//		{
-	//			tableau1.setElement(i, i*i);
-	//		}
+			for (unsigned int i = 0; i < CAPACITE; ++i)
+			{
+				tableau1.setElement(i, i*i);
+			}
 
-	//		//Action
-	//		DynamicArray tableau2(tableau1);
+			//Action
+			DynamicArray tableau2(tableau1);
 
-	//		//Assert
-	//		
-	//		// AssertDynamicArraysAreEqual est un méthode privée déclarée à la fin de la classe de tests. Enlever les commentaire pour y avoir accès.
-	//		AssertDynamicArraysAreEqual(tableau1, tableau2); 
+			//Assert
+			
+			// AssertDynamicArraysAreEqual est un méthode privée déclarée à la fin de la classe de tests. Enlever les commentaire pour y avoir accès.
+			AssertDynamicArraysAreEqual(tableau1, tableau2); 
 
-	//	}
+		}
 
-	//	TEST_METHOD(l_operateur_egal_devrait_copier_tout_le_contenu_d_un_dynamicArray)
-	//	{
-	//		//Arrange
-	//		const int CAPACITE = 5;
-	//		DynamicArray tableau1(CAPACITE);
-	//		DynamicArray tableau2;
+		TEST_METHOD(l_operateur_egal_devrait_copier_tout_le_contenu_d_un_dynamicArray)
+		{
+			//Arrange
+			const int CAPACITE = 5;
+			DynamicArray tableau1(CAPACITE);
+			DynamicArray tableau2;
 
-	//		for (unsigned int i = 0; i < CAPACITE; ++i)
-	//		{
-	//			tableau1.setElement(i, i*i);
-	//		}
+			for (unsigned int i = 0; i < CAPACITE; ++i)
+			{
+				tableau1.setElement(i, i*i);
+			}
 
-	//		//Action
-	//		tableau2 = tableau1;
+			//Action
+			tableau2 = tableau1;
 
 
-	//		//Assert
-	//		AssertDynamicArraysAreEqual(tableau1, tableau2);
-	//	}
+			//Assert
+			AssertDynamicArraysAreEqual(tableau1, tableau2);
+		}
 
-	//	TEST_METHOD(etant_donne_deux_dynamicArrays_identiques_l_operateur_d_egalite_devrait_retourner_vrai)
-	//	{
-	//		//Arrange
-	//		const int CAPACITE = 5;
-	//		DynamicArray tableau1(CAPACITE);
+		TEST_METHOD(etant_donne_deux_dynamicArrays_identiques_l_operateur_d_egalite_devrait_retourner_vrai)
+		{
+			//Arrange
+			const int CAPACITE = 5;
+			DynamicArray tableau1(CAPACITE);
 
-	//		for (unsigned int i = 0; i < CAPACITE; ++i)
-	//		{
-	//			tableau1.setElement(i, i*i);
-	//		}
+			for (unsigned int i = 0; i < CAPACITE; ++i)
+			{
+				tableau1.setElement(i, i*i);
+			}
 
-	//		DynamicArray tableau2(tableau1);
+			DynamicArray tableau2(tableau1);
 
-	//		//Action-Assert
-	//		Assert::IsTrue(tableau1 == tableau2);
-	//	}
+			//Action-Assert
+			Assert::IsTrue(tableau1 == tableau2);
+		}
 
-	//	TEST_METHOD(etant_donne_deux_dynamicArrays_de_capacite_differente_l_operateur_d_egalite_devrait_retourner_faux)
-	//	{
-	//		//Arrange
-	//		DynamicArray tableau1(2);
-	//		DynamicArray tableau2(3);
+		TEST_METHOD(etant_donne_deux_dynamicArrays_de_capacite_differente_l_operateur_d_egalite_devrait_retourner_faux)
+		{
+			//Arrange
+			DynamicArray tableau1(2);
+			DynamicArray tableau2(3);
 
-	//		//Action-Assert
-	//		Assert::IsFalse(tableau1 == tableau2);
-	//	}
+			//Action-Assert
+			Assert::IsFalse(tableau1 == tableau2);
+		}
 
-	//	TEST_METHOD(etant_donne_deux_dynamicArrays_de_capacite_egale_mais_de_contenu_different_l_operateur_d_egalite_devrait_retourner_faux)
-	//	{
-	//		//Arrange
-	//		DynamicArray tableau1(2);
-	//		DynamicArray tableau2(2);
-	//		tableau2.setElement(1, 99);
+		TEST_METHOD(etant_donne_deux_dynamicArrays_de_capacite_egale_mais_de_contenu_different_l_operateur_d_egalite_devrait_retourner_faux)
+		{
+			//Arrange
+			DynamicArray tableau1(2);
+			DynamicArray tableau2(2);
+			tableau2.setElement(1, 99);
 
-	//		//Action-Assert
-	//		Assert::IsFalse(tableau1 == tableau2);
-	//	}
+			//Action-Assert
+			Assert::IsFalse(tableau1 == tableau2);
+		}
 
 
 	//	TEST_METHOD(l_operateur_d_addition_devrait_concatener_deux_dynamicArrays_si_differents)
@@ -356,15 +356,15 @@ namespace DynamicArrayTests
 	//	}
 
 
-	//private:
-	//	void AssertDynamicArraysAreEqual(DynamicArray & dynamicArray1, DynamicArray & dynamicArray2)
-	//	{
-	//		Assert::AreEqual(dynamicArray1.getCapacite(), dynamicArray2.getCapacite());
-	//		for (int i = 0; i < dynamicArray1.getCapacite(); i++)
-	//		{
-	//			Assert::AreEqual(dynamicArray1.getElement(i), dynamicArray2.getElement(i));
-	//		}
-	//	}
+	private:
+		void AssertDynamicArraysAreEqual(DynamicArray & dynamicArray1, DynamicArray & dynamicArray2)
+		{
+			Assert::AreEqual(dynamicArray1.getCapacite(), dynamicArray2.getCapacite());
+			for (int i = 0; i < dynamicArray1.getCapacite(); i++)
+			{
+				Assert::AreEqual(dynamicArray1.getElement(i), dynamicArray2.getElement(i));
+			}
+		}
 
 	};
 }

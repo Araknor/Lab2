@@ -1,4 +1,5 @@
 #include "dynamicArray.h"
+#include <algorithm>
 
 DynamicArray::DynamicArray(unsigned index)
 {
@@ -10,6 +11,41 @@ DynamicArray::DynamicArray(unsigned index)
 	{
 		tabElements[i] = 0;
 	}
+}
+
+DynamicArray::DynamicArray(const DynamicArray& _source)
+	:tabElements(new int[_source.getCapacite()]),
+	capacite(_source.getCapacite())
+{
+	for (unsigned int i = 0; i < capacite; ++i)
+	{
+		tabElements[i] = _source.tabElements[i];
+	}
+}
+
+DynamicArray& DynamicArray::operator=(const DynamicArray& _source)
+{
+	if (&_source != this)
+	{
+		delete[] tabElements;
+		tabElements = new int[_source.getCapacite()];
+		capacite = _source.getCapacite();
+		for (unsigned int i = 0; i < capacite; ++i)
+		{
+			tabElements[i] = _source.tabElements[i];
+		}
+	}
+	return *this;
+}
+
+bool DynamicArray::operator==(const DynamicArray& _source)
+{
+	if (_source.getCapacite() != this->getCapacite() &&
+		_source.tabElements != this->tabElements)
+	{
+		return false;
+	}
+	return true;
 }
 
 /*DynamicArray::~DynamicArray()
@@ -32,35 +68,30 @@ void DynamicArray::setElement(const int index_element, const int nouvelle_valeur
 {
 	if (index_element > capacite)
 	{
-		setCapacite(index_element);
+		setCapacite(index_element + 1);
 	}
 
-	for (int i = 0; i <= index_element; i++)
-	{
-		if (i == index_element)
-		{
-			tabElements[i] = nouvelle_valeur_element;
-		}
-	}
+	tabElements[index_element] = nouvelle_valeur_element;
 }
 
 void DynamicArray::setCapacite(const int nouvelle_capacite)
 {
 	if (nouvelle_capacite <= 0) throw std::invalid_argument("received a value smaller than 1");
-	capacite = nouvelle_capacite;
 	int * newTableau = new int[nouvelle_capacite];
 
-	for (int i = 0; i < capacite; i++)
+	for (int i = 0; i < std::min(capacite, nouvelle_capacite); ++i)
 	{
-		if (getElement(i) >= NULL)
-		{
-			newTableau[i] = getElement(i);
-		}
-		else
-		{
-			newTableau[i] = 0;
-		}
+		newTableau[i] = tabElements[i];
 	}
+
+	for (int i = capacite; i < nouvelle_capacite; ++i)
+	{
+		newTableau[i] = 0;
+	}
+
 	delete[] tabElements;
+
+	capacite = nouvelle_capacite;
+
 	tabElements = newTableau;
 }

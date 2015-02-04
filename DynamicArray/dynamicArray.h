@@ -16,7 +16,12 @@ public:
 			tabElements[i] = 0;
 		}
 	}
+
 	DynamicArray(unsigned int index);
+	DynamicArray(const DynamicArray  & _source);
+	DynamicArray& operator=(const DynamicArray  & _source);
+	bool operator==(const DynamicArray  & _source);
+
 	//~DynamicArray();
 	int getCapacite() const;
 	int getElement(int i) const;
