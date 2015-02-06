@@ -267,6 +267,25 @@ namespace DynamicArrayTests
 			Assert::IsTrue(tableau1 == tableau2);
 		}
 
+		TEST_METHOD(voir_si_la_copie_du_tableau_a_ete_fait_de_facon_profonde)
+		{
+			//Arrange
+			const int CAPACITE = 5;
+			DynamicArray tableau1(CAPACITE);
+
+			for (unsigned int i = 0; i < CAPACITE; ++i)
+			{
+				tableau1.setElement(i, i*i);
+			}
+
+			DynamicArray tableau2(tableau1);
+
+			tableau2.setElement(0, 4214);
+
+			//Action-Assert
+			Assert::IsTrue(tableau1.getElement(0) != tableau2.getElement(0));
+		}
+
 		TEST_METHOD(etant_donne_deux_dynamicArrays_de_capacite_differente_l_operateur_d_egalite_devrait_retourner_faux)
 		{
 			//Arrange

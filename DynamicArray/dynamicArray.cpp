@@ -40,12 +40,23 @@ DynamicArray& DynamicArray::operator=(const DynamicArray& _source)
 
 bool DynamicArray::operator==(const DynamicArray& _source)
 {
-	if (_source.getCapacite() != this->getCapacite() &&
-		_source.tabElements != this->tabElements)
+	if (capacite != _source.capacite)
 	{
 		return false;
 	}
+	for (int i = 0; i < _source.getCapacite(); i++)
+	{
+		if (tabElements[i] != _source.tabElements[i])
+		{
+			return false;
+		}
+	}
 	return true;
+}
+
+DynamicArray& DynamicArray::operator+=(const DynamicArray& _source)
+{
+	return *this;
 }
 
 /*DynamicArray::~DynamicArray()
